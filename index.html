@@ -3,85 +3,607 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqib Ali Traders | Premium Collection</title>
+    <title>Aqib Ali Traders | Premium Watches & Accessories</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: #ffffff; color: #111827; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
-        /* --- ❄️ SNOWFALL ANIMATION --- */
-        .snowflakes { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; }
-        .snowflake { position: absolute; color: white; user-select: none; animation: fall linear infinite; }
-        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); } 100% { transform: translateY(110vh) rotate(360deg); } }
+        body {
+            background-color: #ffffff;
+            color: #111827;
+        }
 
-        /* --- UI COMPONENTS --- */
-        .top-sale-banner { background: linear-gradient(90deg, #b91c1c, #dc2626); color: white; text-align: center; padding: 10px; font-size: 0.85rem; font-weight: 700; }
-        .main-navbar { background-color: #000000; color: white; padding: 20px 40px; text-align: center; }
-        .catalog-container { max-width: 1300px; margin: 40px auto; padding: 0 20px; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { border: 1px solid #eee; border-radius: 8px; padding: 15px; text-align: center; transition: 0.3s; }
-        .product-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .product-card img { width: 100%; height: 250px; object-fit: contain; margin-bottom: 15px; }
-        .product-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; }
-        .price-new { font-size: 1.2rem; font-weight: 800; color: #000; margin: 10px 0; display: block; }
-        .btn-shop-now { display: block; background: #25d366; color: white; padding: 12px; text-decoration: none; border-radius: 5px; font-weight: 700; cursor: pointer; border: none; width: 100%; }
+        /* --- 🔴 TOP RED SALE BANNER --- */
+        .top-sale-banner {
+            background: linear-gradient(90deg, #b91c1c, #dc2626);
+            color: white;
+            text-align: center;
+            padding: 8px 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .live-tag {
+            background: white;
+            color: #dc2626;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        /* --- 🕒 TRUST INFOBAR --- */
+        .trust-bar {
+            background-color: #0a0a0a;
+            color: #d1d5db;
+            border-bottom: 1px solid #222;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trust-item span {
+            color: #fbbf24;
+        }
+
+        /* --- 🖤 BLACK MAIN NAVBAR --- */
+        .main-navbar {
+            background-color: #000000;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .brand-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .brand-logo h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .brand-logo span {
+            font-size: 0.65rem;
+            color: #9ca3af;
+            letter-spacing: 2px;
+            margin-top: -2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: #9ca3af;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-icons svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .nav-icons svg:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- 🎛️ FILTERS SECTION --- */
+        .filter-container {
+            max-width: 1300px;
+            margin: 30px auto 15px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 15px;
+        }
+
+        .filter-groups {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #374151;
+        }
+
+        .filter-dropdown {
+            font-weight: 500;
+            color: #6b7280;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .sort-select {
+            padding: 8px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            outline: none;
+            color: #374151;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        /* --- 🛍️ PRODUCT GRID WITH SHOP NOW BUTTON --- */
+        .catalog-container {
+            max-width: 1300px;
+            margin: 0 auto 50px auto;
+            padding: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f0f0f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            background-color: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-wrapper img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+        }
+
+        .badge-discount {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: #2563eb;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+
+        .badge-rating {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .star-icon {
+            color: #fbbf24;
+        }
+
+        .product-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-details {
+            margin-bottom: 12px;
+        }
+
+        .product-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .product-type {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        .price-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .price-new {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .price-old {
+            font-size: 0.95rem;
+            color: #9ca3af;
+            text-decoration: line-through;
+        }
+
+        /* --- 🟢 WHATSAPP SHOP NOW BUTTON --- */
+        .btn-shop-now {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-shop-now:hover {
+            background-color: #1f2937;
+        }
+
+        .wa-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .trust-bar, .filter-groups .filter-dropdown {
+                display: none;
+            }
+            .main-navbar {
+                padding: 15px 20px;
+            }
+            .filter-container {
+                margin-top: 15px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="snowflakes" id="snowflakes"></div>
+    <!-- 🔴 TOP RED BANNER -->
+    <div class="top-sale-banner">
+        <span>SALE LIVE</span>
+        <span class="live-tag">Upto 40% OFF</span>
+        <span>30 DAYS HASSLE-FREE RETURNS</span>
+    </div>
 
-    <div class="top-sale-banner">WINTER SALE IS LIVE - LIMITED STOCK AVAILABLE!</div>
+    <!-- 🕒 TRUST LINE BAR -->
+    <div class="trust-bar">
+        <div class="trust-item">Easy Refund & Exchange</div>
+        <div class="trust-item"><span>★★★★★</span> 18 Millions Satisfied Customers</div>
+        <div class="trust-item">1 Year International Warranty</div>
+    </div>
 
+    <!-- 🖤 MAIN BLACK HEADER -->
     <nav class="main-navbar">
-        <h1>AQIB ALI TRADERS</h1>
+        <div class="brand-logo">
+            <h1>AQIB ALI TRADERS</h1>
+            <span>SINCE 2026</span>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="#">Own Your Time</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">New Arrival</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Smart Watches</a></li>
+            <li><a href="#">Track Order</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
     </nav>
 
+    <!-- 🎛️ FILTERS LINE -->
+    <div class="filter-container">
+        <div class="filter-groups">
+            <span>FILTERS |</span>
+            <div class="filter-dropdown">Category ▾</div>
+            <div class="filter-dropdown">Price ▾</div>
+            <div class="filter-dropdown">Availability ▾</div>
+            <div class="filter-dropdown">Product Type ▾</div>
+        </div>
+        <div>
+            <select class="sort-select">
+                <option>Featured</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Best Selling</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 🛍️ CATALOG 8-PRODUCT GRID -->
     <main class="catalog-container">
-        <div class="product-grid" id="productGrid">
-            <!-- Products will be generated by JS -->
+        <div class="product-grid">
+            
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="badge-discount">35% OFF</span>
+                    <span class="badge-rating"><span class="star-icon">★</span> 4.8</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvYRFFQe_rEiy21aeKaSE2-ptbznp_nbOyCz8e4Xtl7w&s=10" alt="Product 1">
+                </div>
+                <div class="product-info">
+                    <div class="product-details">
+                        <h3 class="product-name">Lotus Classic</h3>
+                        <p class="product-type">Men's Premium Edition</p>
+                        <div class="price-box">
+                            <span class="price-new">Rs.2,499</span>
+                            <span class="price-old">Rs.3,850</span>
+                        </div>
+                    </div>
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Lotus Classic', 'Rs.2,499')">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="badge-discount">25% OFF</span>
+                    <span class="badge-rating"><span class="star-icon">★</span> 4.7</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqAX_2nViNAfLWNJWLNWXVhJeN8wyW5gaU0DtxaNu2Ag&s=10" alt="Product 2">
+                </div>
+                <div class="product-info">
+                    <div class="product-details">
+                        <h3 class="product-name">Doroly Sleek</h3>
+                        <p class="product-type">Stainless Steel Strap</p>
+                        <div class="price-box">
+                            <span class="price-new">Rs.3,199</span>
+                            <span class="price-old">Rs.4,250</span>
+                        </div>
+                    </div>
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Doroly Sleek', 'Rs.3,199')">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="badge-discount">40% OFF</span>
+                    <span class="badge-rating"><span class="star-icon">★</span> 4.9</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX-IlDJbQQI_u3e_zhiKvJIfa7Z4F2G8YxtuDN3o_2xA&s=10" alt="Product 3">
+                </div>
+                <div class="product-info">
+                    <div class="product-details">
+                        <h3 class="product-name">Chrono Elegant</h3>
+                        <p class="product-type">Executive Luxury Wear</p>
+                        <div class="price-box">
+                            <span class="price-new">Rs.4,850</span>
+                            <span class="price-old">Rs.7,999</span>
+                        </div>
+                    </div>
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Chrono Elegant', 'Rs.4,850')">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="badge-discount">30% OFF</span>
+                    <span class="badge-rating"><span class="star-icon">★</span> 4.6</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6YY4ViBXNS-O5sBROtst-rMNUJhg9Gyitt4uhGOy_cQ&s" alt="Product 4">
+                </div>
+                <div class="product-info">
+                    <div class="product-details">
+                        <h3 class="product-name">Phantom Black</h3>
+                        <p class="product-type">Men's Casual Sport</p>
+                        <div class="price-box">
+                            <span class="price-new">Rs.2,150</span>
+                            <span class="price-old">Rs.2,999</span>
+                        </div>
+                    </div>
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Phantom Black', 'Rs.2,150')">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="badge-discount">45% OFF</span>
+                    <span class="badge-rating"><span class="star-icon">★</span> 4.8</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRTwAwPOcqBiR9rYBRR27xI4sk0bvndc2CQj0OMg_IPg&s=10" alt="Product 5">
+                </div>
+                <div class="product-info">
+                    <div class="product-details">
+                        <h3 class="product-name">Royal Gold</h3>
+                        <p class="product-type">Men's Golden Chain</p>
+                        <div class="price-box">
+                            <span class="price-new">Rs.3,799</span>
+                            <span class="price-old">Rs.5,500</span>
+                        </div>
+                    </div>
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Royal Gold', 'Rs.3,799')">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="badge-discount">20% OFF</span>
+                    <span class="badge-rating"><span class="star-icon">★</span> 4.7</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg1n0BGSUheNUskbmzD4Ecmv4p7qpAMbLM1qqujw8HNw&s=10" alt="Product 6">
+                </div>
+                <div class="product-info">
+                    <div class="product-details">
+                        <h3 class="product-name">Legacy Leather</h3>
+                        <p class="product-type">Brown Leather Classic</p>
+                        <div class="price-box">
+                            <span class="price-new">Rs.2,890</span>
+                            <span class="price-old">Rs.3,600</span>
+                        </div>
+                    </div>
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Legacy Leather', 'Rs.2,890')">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="badge-discount">50% OFF</span>
+                    <span class="badge-rating"><span class="star-icon">★</span> 4.9</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS18QhuiSSxBzmy-m-nwVzUj1qk21dhBh1HAcgPeQoldg&s=10" alt="Product 7">
+                </div>
+                <div class="product-info">
+                    <div class="product-details">
+                        <h3 class="product-name">Prestige Silver</h3>
+                        <p class="product-type">Luxury Metallic Finish</p>
+                        <div class="price-box">
+                            <span class="price-new">Rs.4,200</span>
+                            <span class="price-old">Rs.8,400</span>
+                        </div>
+                    </div>
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Prestige Silver', 'Rs.4,200')">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="badge-discount">33% OFF</span>
+                    <span class="badge-rating"><span class="star-icon">★</span> 4.8</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-YlkT2VL0hcWi99eANSxmi4zSPckfRxSQE70vEYVRew&s=10" alt="Product 8">
+                </div>
+                <div class="product-info">
+                    <div class="product-details">
+                        <h3 class="product-name">Vanguard Edition</h3>
+                        <p class="product-type">Men's Minimalist Design</p>
+                        <div class="price-box">
+                            <span class="price-new">Rs.2,650</span>
+                            <span class="price-old">Rs.3,950</span>
+                        </div>
+                    </div>
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Vanguard Edition', 'Rs.2,650')">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+
         </div>
     </main>
 
     <script>
-        const products = [
-            { name: "Lotus Classic", price: "Rs.2,499", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvYRFFQe_rEiy21aeKaSE2-ptbznp_nbOyCz8e4Xtl7w&s=10" },
-            { name: "Doroly Sleek", price: "Rs.3,199", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqAX_2nViNAfLWNJWLNWXVhJeN8wyW5gaU0DtxaNu2Ag&s=10" },
-            { name: "Chrono Elegant", price: "Rs.4,850", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX-IlDJbQQI_u3e_zhiKvJIfa7Z4F2G8YxtuDN3o_2xA&s=10" },
-            { name: "Phantom Black", price: "Rs.2,150", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6YY4ViBXNS-O5sBROtst-rMNUJhg9Gyitt4uhGOy_cQ&s" },
-            { name: "Royal Gold", price: "Rs.3,799", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRTwAwPOcqBiR9rYBRR27xI4sk0bvndc2CQj0OMg_IPg&s=10" },
-            { name: "Legacy Leather", price: "Rs.2,890", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg1n0BGSUheNUskbmzD4Ecmv4p7qpAMbLM1qqujw8HNw&s=10" },
-            { name: "Prestige Silver", price: "Rs.4,200", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS18QhuiSSxBzmy-m-nwVzUj1qk21dhBh1HAcgPeQoldg&s=10" },
-            { name: "Vanguard Edition", price: "Rs.2,650", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-YlkT2VL0hcWi99eANSxmi4zSPckfRxSQE70vEYVRew&s=10" }
-        ];
-
-        const grid = document.getElementById('productGrid');
-        products.forEach(p => {
-            grid.innerHTML += `
-                <div class="product-card">
-                    <img src="${p.img}" alt="${p.name}">
-                    <h3 class="product-name">${p.name}</h3>
-                    <span class="price-new">${p.price}</span>
-                    <button class="btn-shop-now" onclick="window.open('https://wa.me/923080552133?text=Assalam-o-Alaikum, I want to buy ${p.name} for ${p.price}')">SHOP ON WHATSAPP</button>
-                </div>
-            `;
-        });
-
-        // Snowfall Function
-        function createSnow() {
-            const container = document.getElementById('snowflakes');
-            const icons = ['❄', '❅', '❆'];
-            for (let i = 0; i < 40; i++) {
-                const s = document.createElement('div');
-                s.className = 'snowflake';
-                s.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-                s.style.left = Math.random() * 100 + 'vw';
-                s.style.animationDuration = Math.random() * 5 + 7 + 's';
-                s.style.fontSize = (Math.random() * 15 + 10) + 'px';
-                container.appendChild(s);
-            }
+        function redirectToWhatsApp(productName, productPrice) {
+            const phoneNumber = "923080552133";
+            const message = `Assalam-o-Alaikum, I want to buy this product from *Aqib Ali Traders*:\n\n` +
+                            `📦 *Product:* ${productName}\n` +
+                            `💰 *Price:* ${productPrice}\n\n` +
+                            `Please guide me further about the delivery process.`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
         }
-        createSnow();
     </script>
+
 </body>
 </html>
