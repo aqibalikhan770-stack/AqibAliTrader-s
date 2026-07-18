@@ -3,198 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqib Ali Traders | Brand New Smart Watches & Earbuds</title>
+    <title>Aqib Ali Traders | Premium Smart Tech Store</title>
+    <!-- Google Fonts for Professional Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-surface: #1e293b;
+            --accent: #06b6d4;
+            --accent-hover: #0891b2;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #10b981;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
+
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            overflow-x: hidden;
         }
-        /* Header & Navigation */
+
+        /* Shopify-style Sticky Header */
         header {
-            background-color: #0f172a;
-            color: white;
-            padding: 25px;
+            position: sticky;
+            top: 0;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             text-align: center;
-            border-bottom: 4px solid #06b6d4;
         }
+
         header h1 {
-            font-size: 2.6rem;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
         header p {
-            color: #94a3b8;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
-        /* Main Container */
+
         .container {
             max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
+            margin: 40px auto;
+            padding: 0 24px;
         }
-        .intro {
+
+        /* Hero Banner Section */
+        .hero {
             text-align: center;
-            margin-bottom: 40px;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 3px solid #06b6d4;
+            padding: 60px 20px;
+            background: radial-gradient(circle at top, rgba(6, 182, 212, 0.15), transparent 60%);
+            border-radius: 24px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .intro h2 {
-            color: #1e293b;
-            margin-bottom: 10px;
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
         }
-        /* Products Grid */
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Shopify Pro 3D Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
+
         .card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-align: center;
-            padding: 25px;
-            border: 1px solid #e2e8f0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--bg-surface);
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
+
+        /* 3D Pop-out Effect on Hover */
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.3);
         }
-        /* Badge for NEW items */
+
         .badge {
-            background-color: #ef4444;
-            color: white;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(6, 182, 212, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
             font-size: 0.75rem;
-            font-weight: bold;
-            padding: 4px 10px;
-            border-radius: 50px;
-            display: inline-block;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 30px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            letter-spacing: 0.5px;
         }
-        .product-icon {
-            font-size: 4rem;
-            margin: 10px 0;
+
+        .product-media {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            margin: 20px 0 10px 0;
+            transition: transform 0.3s ease;
         }
+
+        .card:hover .product-media {
+            transform: scale(1.1);
+        }
+
         .card h3 {
-            font-size: 1.4rem;
-            color: #1e293b;
-            margin-bottom: 10px;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+            text-align: left;
         }
+
         .card p {
-            color: #64748b;
+            color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            text-align: left;
         }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
         .price {
-            font-size: 1.3rem;
-            color: #10b981;
-            font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 1.25rem;
+            color: var(--success);
+            font-weight: 700;
         }
-        /* Action Buttons */
+
+        /* Shopify Style Button */
         .btn-whatsapp {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: #25D366;
             color: white;
-            padding: 12px 20px;
+            padding: 14px 20px;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
             width: 100%;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
         }
+
         .btn-whatsapp:hover {
             background-color: #1fba55;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
-        /* Contact Footer Info */
-        .contact-info {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: #64748b;
-            border-top: 1px dashed #cbd5e1;
-            padding-top: 10px;
-        }
-        /* Footer */
+
+        /* Footer info styling */
         footer {
-            background-color: #0f172a;
-            color: #94a3b8;
+            background: #000;
+            padding: 40px 24px;
+            margin-top: 80px;
             text-align: center;
-            padding: 25px;
-            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer p {
+            color: var(--text-muted);
             font-size: 0.9rem;
+        }
+
+        .footer-contacts {
+            margin: 15px 0;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .footer-contacts span {
+            color: var(--accent);
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.8rem; }
+            header h1 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Professional Navigation Bar -->
     <header>
         <h1>Aqib Ali Traders</h1>
-        <p>100% Brand New & Sealed Smart Watches & Earbuds</p>
+        <p>Premium Brand New Smart Tech Store</p>
     </header>
 
     <div class="container">
-        <!-- Intro Section -->
-        <div class="intro">
-            <h2>Latest Smart Tech, Brand New Stock!</h2>
-            <p>Aqib Ali Traders par aapko milenge bilkul naye aur sealed-pack Wireless Earbuds aur Smart Watches. No compromise on quality, sirf original aur premium products behtareen market price par.</p>
+        <!-- Premium Shopify-Style Hero Section -->
+        <div class="hero">
+            <h2>Elevate Your Tech Style</h2>
+            <p>Aqib Ali Traders faraham karta hai bilkul naye, original aur sealed-pack Wireless Earbuds aur Smart Watches. Quality aisi jo aapko de pro-level experience.</p>
         </div>
 
-        <!-- Products List -->
+        <!-- Products Pro Grid -->
         <div class="grid">
             
-            <!-- Product 1: Brand New Earbuds -->
+            <!-- Product 1: Earbuds -->
             <div class="card">
                 <span class="badge">New Arrival</span>
-                <div class="product-icon">🎧</div>
-                <h3>Wireless Earbuds (Sealed Pack)</h3>
-                <p>Latest tech earbuds heavy bass, long battery life, aur crystal clear sound ke sath. Bilkul naye aur sealed box.</p>
-                <div class="price">Wholesale & Retail Rates</div>
-                <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20New%20Earbuds%20ki%20details%20chahiye" target="_blank" class="btn-whatsapp">Order on WhatsApp</a>
+                <div class="product-media">🎧</div>
+                <div>
+                    <h3>Wireless Earbuds (Sealed Pack)</h3>
+                    <p>Latest high-bass sound technology aur long-lasting battery box-pack condition me.</p>
+                </div>
+                <div>
+                    <div class="price-row">
+                        <span class="price-label">Price Mode</span>
+                        <span class="price">Wholesale & Retail</span>
+                    </div>
+                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20New%20Earbuds%20ki%20details%20chahiye" target="_blank" class="btn-whatsapp">Order on WhatsApp</a>
+                </div>
             </div>
 
-            <!-- Product 2: Brand New Smart Watch -->
+            <!-- Product 2: Smart Watch -->
             <div class="card">
                 <span class="badge">100% Original</span>
-                <div class="product-icon">⌚</div>
-                <h3>Smart Watches (Latest Models)</h3>
-                <p>Amoled display, fitness tracking, aur premium looks ke sath brand new smart watches. Box pack stock available.</p>
-                <div class="price">Behtareen Deal</div>
-                <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20New%20Smart%20Watch%20ki%20details%20chahiye" target="_blank" class="btn-whatsapp">Order on WhatsApp</a>
+                <div class="product-media">⌚</div>
+                <div>
+                    <h3>Smart Watches (Latest Models)</h3>
+                    <p>Premium Amoled displays, accurate health tracking aur elegant design ke sath completely original smart watches.</p>
+                </div>
+                <div>
+                    <div class="price-row">
+                        <span class="price-label">Offer Price</span>
+                        <span class="price">Best Market Rates</span>
+                    </div>
+                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20New%20Smart%20Watch%20ki%20details%20chahiye" target="_blank" class="btn-whatsapp">Order on WhatsApp</a>
+                </div>
             </div>
 
-            <!-- Product 3: Bulk / Shopkeepers Deal -->
+            <!-- Product 3: Bulk Deals -->
             <div class="card">
-                <span class="badge">Stock Offer</span>
-                <div class="product-icon">📦</div>
-                <h3>Bulk Order / Shop Stock</h3>
-                <p>Agar aapko apni shop ke liye wholesale me fresh aur brand new stock chahiye, toh special rate par rabta karein.</p>
-                <div class="price">Wholesale Prices</div>
-                <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20New%20Stock%20wholesale%20ki%20details%20chahiye" target="_blank" class="btn-whatsapp">Contact For Wholesale</a>
+                <span class="badge">Stock Live</span>
+                <div class="product-media">📦</div>
+                <div>
+                    <h3>Bulk Order / Shopkeeper Deals</h3>
+                    <p>Agar aap apni shop ke liye fresh aur sealed box stock lena chahte hain, toh wholesale special rates par rabta karein.</p>
+                </div>
+                <div>
+                    <div class="price-row">
+                        <span class="price-label">Bulk Rate</span>
+                        <span class="price">Special Discount</span>
+                    </div>
+                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20New%20Stock%20wholesale%20ki%20details%20chahiye" target="_blank" class="btn-whatsapp">Contact For Wholesale</a>
+                </div>
             </div>
 
         </div>
     </div>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Aqib Ali Traders. All Rights Reserved.</p>
-        <div class="contact-info">
-            <p>📧 Email: Aqibali552133@gmail.com | 📱 Phone: +92 308 0552133</p>
+        <div class="footer-contacts">
+            📧 Email: <span>Aqibali552133@gmail.com</span> | 📱 Phone: <span>+92 308 0552133</span>
         </div>
+        <p style="font-size: 0.8rem; opacity: 0.5;">Designed for Premium Customer Experience</p>
     </footer>
 
 </body>
