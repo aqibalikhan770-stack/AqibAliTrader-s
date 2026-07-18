@@ -7,11 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #060913;
-            --bg-surface: rgba(30, 41, 59, 0.7);
+            --bg-surface: rgba(15, 23, 42, 0.65);
             --accent: #38bdf8;
+            --accent-neon: #d946ef;
             --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --text-muted: #cbd5e1;
             --success: #34d399;
         }
 
@@ -23,10 +23,16 @@
         }
 
         body {
-            background-color: var(--bg-primary);
+            /* Colorful 3D Cyber Tech Wallpaper Background */
+            background: linear-gradient(135deg, rgba(6, 9, 25, 0.9), rgba(15, 12, 30, 0.85)), 
+                        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--text-main);
             overflow-x: hidden;
-            perspective: 1000px; /* Enables 3D space */
+            perspective: 1000px;
+            min-height: 100vh;
         }
 
         /* Snow Canvas */
@@ -43,22 +49,23 @@
         header {
             position: sticky;
             top: 0;
-            background: rgba(6, 9, 19, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(6, 9, 25, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             z-index: 1000;
             padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
         header h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, var(--accent), #fff);
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #38bdf8, #f472b6, #d946ef);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+            text-shadow: 0 0 30px rgba(217, 70, 239, 0.3);
         }
 
         .container {
@@ -72,12 +79,22 @@
         .hero {
             text-align: center;
             padding: 50px 20px;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-radius: 24px;
             margin-bottom: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: inset 0 0 30px rgba(255,255,255,0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 
+                        inset 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            background: linear-gradient(to right, #fff, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
         }
 
         /* 3D Moving Grid */
@@ -87,35 +104,43 @@
             gap: 35px;
         }
 
-        /* 3D Glass Card */
+        /* 3D Glass Card with Colorful Neon Borders */
         .card {
             background: var(--bg-surface);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 24px;
             padding: 30px 24px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            transform-style: preserve-3d; /* Fixes 3D depth */
-            transition: transform 0.1s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            cursor: pointer;
+            position: relative;
+        }
+
+        /* Neon Glow Effect on Hover */
+        .card:hover {
+            border-color: rgba(217, 70, 239, 0.6);
+            box-shadow: 0 20px 40px rgba(217, 70, 239, 0.25), 0 0 30px rgba(56, 189, 248, 0.15);
         }
 
         .badge {
             position: absolute;
             top: 20px;
             left: 20px;
-            background: rgba(56, 189, 248, 0.15);
-            border: 1px solid var(--accent);
-            color: var(--accent);
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(217, 70, 239, 0.3));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
             font-size: 0.75rem;
             font-weight: 600;
             padding: 6px 14px;
             border-radius: 30px;
-            transform: translateZ(20px); /* Pushes badge outward in 3D space */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transform: translateZ(20px);
         }
 
         .product-media {
@@ -123,11 +148,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
+            font-size: 5.5rem;
             margin: 20px 0;
-            transform: translateZ(40px); /* Gives real 3D depth to icons */
+            transform: translateZ(50px);
             transition: transform 0.3s ease;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5));
+        }
+
+        .card:hover .product-media {
+            transform: translateZ(70px) scale(1.05);
         }
 
         .card h3 {
@@ -135,6 +164,7 @@
             color: #fff;
             margin-bottom: 8px;
             transform: translateZ(25px);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .card p {
@@ -150,7 +180,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 15px;
             transform: translateZ(20px);
         }
@@ -159,13 +189,14 @@
             font-size: 1.3rem;
             color: var(--success);
             font-weight: 700;
+            text-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
         }
 
         .btn-whatsapp {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: #25D366;
+            background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             padding: 14px 20px;
             text-decoration: none;
@@ -173,52 +204,58 @@
             font-weight: 600;
             width: 100%;
             transform: translateZ(30px);
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
             transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .btn-whatsapp:hover {
-            background-color: #1fba55;
+            transform: translateZ(40px) translateY(-2px);
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
         }
 
         footer {
-            background: #02040a;
+            background: rgba(2, 4, 10, 0.85);
+            backdrop-filter: blur(10px);
             padding: 40px 24px;
             margin-top: 80px;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Music control hint */
         .music-hint {
-            font-size: 0.8rem;
-            color: var(--accent);
-            margin-top: 5px;
-            opacity: 0.8;
+            font-size: 0.85rem;
+            color: #ef4444;
+            margin-top: 8px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Snow Effect Canvas -->
     <canvas id="snow-canvas"></canvas>
 
-    <!-- Ambient Audio Element (Soft Ambient Tech Music) -->
     <audio id="bg-music" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
     </audio>
 
     <header>
         <h1>Aqib Ali Traders</h1>
-        <p>Experience Future Tech in 3D</p>
+        <p>Premium Smart Tech Store</p>
         <p class="music-hint">🎵 Click anywhere on the screen to play soft music</p>
     </header>
 
     <div class="container">
         <div class="hero">
             <h2>Premium Brand New Tech Store</h2>
-            <p>Welcome to the winter tech edition. Move your mouse over the products to experience the 3D depth. 100% original & sealed pack stock.</p>
+            <p>Welcome to the premium tech edition. Move your mouse over the products to experience the dynamic 3D physics tilt. 100% original & sealed pack stock.</p>
         </div>
 
         <div class="grid">
@@ -279,22 +316,19 @@
 
     <footer>
         <p>&copy; 2026 Aqib Ali Traders. All Rights Reserved.</p>
-        <p style="margin-top: 10px; font-size: 0.9rem;">📧 Aqibali552133@gmail.com | 📱 +92 308 0552133</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #94a3b8;">📧 Aqibali552133@gmail.com | 📱 +92 308 0552133</p>
     </footer>
 
     <script>
-        // --- 1. Real 3D Move/Tilt Effect Script ---
+        // --- 1. Enhanced 3D Tilt Script ---
         function js3D(event, element) {
             const cardWidth = element.offsetWidth;
             const cardHeight = element.offsetHeight;
-            const centerX = element.offsetLeft + cardWidth / 2;
-            const centerY = element.offsetTop + cardHeight / 2;
             const mouseX = event.clientX - element.getBoundingClientRect().left;
             const mouseY = event.clientY - element.getBoundingClientRect().top;
             
-            // Calculate rotations based on mouse position
-            const rotateX = ((cardHeight / 2 - mouseY) / (cardHeight / 2)) * 15; // Max 15 deg tilt
-            const rotateY = ((mouseX - cardWidth / 2) / (cardWidth / 2)) * 15;
+            const rotateX = ((cardHeight / 2 - mouseY) / (cardHeight / 2)) * 20; // 20 deg for deeper dynamic depth
+            const rotateY = ((mouseX - cardWidth / 2) / (cardWidth / 2)) * 20;
             
             element.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         }
@@ -303,36 +337,36 @@
             element.style.transform = `rotateX(0deg) rotateY(0deg)`;
         }
 
-        // --- 2. Interactive Audio Auto-play Fix ---
+        // --- 2. Audio Play Control ---
         window.addEventListener('click', () => {
             const music = document.getElementById('bg-music');
             if (music.paused) {
-                music.volume = 0.2; // Keep it soft
+                music.volume = 0.15;
                 music.play();
             }
         });
 
-        // --- 3. Magical Real-time Snowfall Script ---
+        // --- 3. Magical Snowfall Script ---
         const canvas = document.getElementById('snow-canvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
 
-        const numFlakes = 80;
+        const numFlakes = 75;
         const flakes = [];
 
         for (let i = 0; i < numFlakes; i++) {
             flakes.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                r: Math.random() * 3 + 1, // Flake sizes
-                d: Math.random() * numFlakes // Density
+                r: Math.random() * 3 + 1,
+                d: Math.random() * numFlakes
             });
         }
 
         function drawSnow() {
             ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
             ctx.beginPath();
             for (let i = 0; i < numFlakes; i++) {
                 const f = flakes[i];
@@ -347,7 +381,7 @@
             for (let i = 0; i < numFlakes; i++) {
                 const f = flakes[i];
                 f.y += Math.cos(f.d) + 1 + f.r / 2;
-                f.x += Math.sin(f.d) * 0.5;
+                f.x += Math.sin(f.d) * 0.4;
 
                 if (f.y > height) {
                     flakes[i] = { x: Math.random() * width, y: 0, r: f.r, d: f.d };
