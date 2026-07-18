@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqib Ali Traders | Premium 3D Smart Tech Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Aqib Ali Traders | Premium Tech Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-surface: rgba(15, 23, 42, 0.65);
-            --accent: #38bdf8;
-            --accent-neon: #d946ef;
-            --text-main: #f8fafc;
-            --text-muted: #cbd5e1;
-            --success: #34d399;
+            --bg-main: #fcfcfd;
+            --text-color: #111827;
+            --text-muted: #6b7280;
+            --price-discount: #dc2626;
+            --price-was: #9ca3af;
+            --border-color: #f3f4f6;
+            --accent-blue: #2563eb;
         }
 
         * {
@@ -23,291 +24,311 @@
         }
 
         body {
-            /* Colorful 3D Cyber Tech Wallpaper Background */
-            background: linear-gradient(135deg, rgba(6, 9, 25, 0.9), rgba(15, 12, 30, 0.85)), 
-                        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--text-main);
+            background-color: var(--bg-main);
+            color: var(--text-color);
             overflow-x: hidden;
-            perspective: 1000px;
-            min-height: 100vh;
         }
 
-        /* Snow Canvas */
-        #snow-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 999;
+        /* Top Bar */
+        .top-announcement {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 8px 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
             position: sticky;
             top: 0;
-            background: rgba(6, 9, 25, 0.7);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            z-index: 1000;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            z-index: 100;
         }
 
         header h1 {
-            font-size: 2.4rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            background: linear-gradient(to right, #38bdf8, #f472b6, #d946ef);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(217, 70, 239, 0.3);
+            letter-spacing: -0.5px;
+            color: #000;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 10;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .hero {
+        /* Premium E-commerce Promo Banner */
+        .promo-banner {
+            width: 100%;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #1d4ed8 100%);
+            border-radius: 0 0 16px 16px;
+            padding: 40px 20px;
             text-align: center;
-            padding: 50px 20px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 24px;
-            margin-bottom: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 
-                        inset 0 0 20px rgba(255, 255, 255, 0.05);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
         }
 
-        .hero h2 {
-            font-size: 2.2rem;
-            background: linear-gradient(to right, #fff, #38bdf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 12px;
+        .promo-banner h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #facc15; /* Yellow Text */
+            margin-bottom: 15px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* 3D Moving Grid */
-        .grid {
+        .promo-banner p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .shop-now-btn {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .shop-now-btn:hover {
+            transform: scale(1.05);
+            background-color: #111;
+        }
+
+        /* Section Title Styling */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-header h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #000;
+        }
+
+        .section-header a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* E-commerce Grid matching Screenshot */
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
         }
 
-        /* 3D Glass Card with Colorful Neon Borders */
-        .card {
-            background: var(--bg-surface);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 30px 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        /* Clean White E-commerce Card */
+        .product-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Neon Glow Effect on Hover */
-        .card:hover {
-            border-color: rgba(217, 70, 239, 0.6);
-            box-shadow: 0 20px 40px rgba(217, 70, 239, 0.25), 0 0 30px rgba(56, 189, 248, 0.15);
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
         }
 
-        .badge {
+        /* Top Tag (Trending/Heavy Bass) */
+        .product-tag {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(217, 70, 239, 0.3));
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
+            top: 15px;
+            left: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #ec4899; /* Pink color tag */
+            text-transform: uppercase;
+        }
+
+        /* Was Price Tag */
+        .was-price-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
             font-size: 0.75rem;
             font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 30px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transform: translateZ(20px);
+            color: var(--price-discount);
         }
 
-        .product-media {
-            height: 160px;
+        /* Product Image Container */
+        .product-image {
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 5.5rem;
-            margin: 20px 0;
-            transform: translateZ(50px);
-            transition: transform 0.3s ease;
-            filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5));
+            margin: 25px 0 15px 0;
+            background-color: #fafafa;
+            border-radius: 8px;
         }
 
-        .card:hover .product-media {
-            transform: translateZ(70px) scale(1.05);
+        .product-info h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 4px;
         }
 
-        .card h3 {
-            font-size: 1.4rem;
-            color: #fff;
-            margin-bottom: 8px;
-            transform: translateZ(25px);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .card p {
+        .product-info p {
+            font-size: 0.9rem;
             color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 25px;
-            transform: translateZ(15px);
+            margin-bottom: 15px;
         }
 
-        .price-row {
+        /* Bottom Row with Discount & WhatsApp Button */
+        .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 15px;
-            transform: translateZ(20px);
+            border-top: 1px solid #f9fafb;
+            padding-top: 12px;
         }
 
-        .price {
-            font-size: 1.3rem;
-            color: var(--success);
+        .discount-percent {
+            font-size: 0.85rem;
             font-weight: 700;
-            text-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
+            color: var(--price-discount);
         }
 
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #25D366, #128C7E);
+        .buy-btn {
+            background-color: #25D366;
             color: white;
-            padding: 14px 20px;
+            padding: 8px 16px;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 14px;
-            font-weight: 600;
-            width: 100%;
-            transform: translateZ(30px);
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: background 0.2s ease;
         }
 
-        .btn-whatsapp:hover {
-            transform: translateZ(40px) translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        .buy-btn:hover {
+            background-color: #1fba55;
         }
 
         footer {
-            background: rgba(2, 4, 10, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 40px 24px;
-            margin-top: 80px;
+            background: #000;
+            color: #fff;
+            padding: 30px 20px;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .music-hint {
-            font-size: 0.85rem;
-            color: #ef4444;
-            margin-top: 8px;
-            font-weight: 600;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <canvas id="snow-canvas"></canvas>
-
-    <audio id="bg-music" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
-    </audio>
+    <div class="top-announcement">🔥 PAKISTAN DAY SALE IS LIVE - SPECIAL DISCOUNTS ON BULK STOCKS!</div>
 
     <header>
-        <h1>Aqib Ali Traders</h1>
-        <p>Premium Smart Tech Store</p>
-        <p class="music-hint">🎵 Click anywhere on the screen to play soft music</p>
+        <div class="container">
+            <h1>Aqib Ali Traders</h1>
+        </div>
     </header>
 
     <div class="container">
-        <div class="hero">
-            <h2>Premium Brand New Tech Store</h2>
-            <p>Welcome to the premium tech edition. Move your mouse over the products to experience the dynamic 3D physics tilt. 100% original & sealed pack stock.</p>
+        
+        <!-- Premium Header Promo Banner -->
+        <div class="promo-banner">
+            <h2>Best Offers</h2>
+            <p>Premium Sealed Pack Smart Watches & Earbuds</p>
+            <a href="https://wa.me/923080552133" target="_blank" class="shop-now-btn">Shop Now</a>
         </div>
 
-        <div class="grid">
+        <!-- Section Title -->
+        <div class="section-header">
+            <h3>Best Sellers</h3>
+            <a href="#">View all</a>
+        </div>
+
+        <!-- Product Grid matching Zero Lifestyle Layout -->
+        <div class="product-grid">
             
-            <!-- Card 1 -->
-            <div class="card" onmousemove="js3D(event, this)" onmouseleave="reset3D(this)">
-                <span class="badge">New Arrival</span>
-                <div class="product-media">🎧</div>
-                <div>
-                    <h3>Wireless Earbuds (Sealed Pack)</h3>
-                    <p>Latest tech earbuds with superior crystal clear bass sound and infinite battery timing.</p>
+            <!-- Item 1 -->
+            <div class="product-card">
+                <span class="product-tag">Trending</span>
+                <span class="was-price-tag">WAS RS 4,999</span>
+                <div class="product-image">🎧</div>
+                <div class="product-info">
+                    <h4>Carbon Earbuds</h4>
+                    <p>Loud Sound & Premium Bass</p>
                 </div>
-                <div>
-                    <div class="price-row">
-                        <span style="color: var(--text-muted); font-size: 0.85rem;">Stock Type</span>
-                        <span class="price">Fresh Stock</span>
-                    </div>
-                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20New%20Earbuds%20ki%20details%20chahiye" target="_blank" class="btn-whatsapp">Order on WhatsApp</a>
+                <div class="card-footer">
+                    <span class="discount-percent">79% OFF</span>
+                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20Carbon%20Earbuds%20chahiye" target="_blank" class="buy-btn">Order Now</a>
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="card" onmousemove="js3D(event, this)" onmouseleave="reset3D(this)">
-                <span class="badge">100% Original</span>
-                <div class="product-media">⌚</div>
-                <div>
-                    <h3>Smart Watches (Latest Models)</h3>
-                    <p>Stunning Amoled displays, full health tracking sensors, and highly premium metallic design build.</p>
+            <!-- Item 2 -->
+            <div class="product-card">
+                <span class="product-tag">Smart Tech</span>
+                <span class="was-price-tag">WAS RS 5,999</span>
+                <div class="product-image">⌚</div>
+                <div class="product-info">
+                    <h4>Luna Watch</h4>
+                    <p>1.39" HD Display Amoled</p>
                 </div>
-                <div>
-                    <div class="price-row">
-                        <span style="color: var(--text-muted); font-size: 0.85rem;">Price Deal</span>
-                        <span class="price">Best Market Rates</span>
-                    </div>
-                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20New%20Smart%20Watch%20ki%20details%20chahiye" target="_blank" class="btn-whatsapp">Order on WhatsApp</a>
+                <div class="card-footer">
+                    <span class="discount-percent">77% OFF</span>
+                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20Luna%20Watch%20chahiye" target="_blank" class="buy-btn">Order Now</a>
                 </div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="card" onmousemove="js3D(event, this)" onmouseleave="reset3D(this)">
-                <span class="badge">Bulk Live</span>
-                <div class="product-media">📦</div>
-                <div>
-                    <h3>Wholesale / Shopkeeper Deals</h3>
-                    <p>Are you a retailer? Contact us directly to secure premium stock at special custom discounted wholesale rates.</p>
+            <!-- Item 3 -->
+            <div class="product-card">
+                <span class="product-tag">Top Seller</span>
+                <span class="was-price-tag">WAS RS 6,999</span>
+                <div class="product-image">⌚</div>
+                <div class="product-info">
+                    <h4>Ignite Watch</h4>
+                    <p>Up to 9 Days Long Battery</p>
                 </div>
-                <div>
-                    <div class="price-row">
-                        <span style="color: var(--text-muted); font-size: 0.85rem;">Bulk Special</span>
-                        <span class="price">Wholesale Rates</span>
-                    </div>
-                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20New%20Stock%20wholesale%20ki%20details%20chahiye" target="_blank" class="btn-whatsapp">Contact For Wholesale</a>
+                <div class="card-footer">
+                    <span class="discount-percent">77% OFF</span>
+                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20Ignite%20Watch%20chahiye" target="_blank" class="buy-btn">Order Now</a>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="product-card">
+                <span class="product-tag">Heavy Bass Drivers</span>
+                <span class="was-price-tag">WAS RS 5,499</span>
+                <div class="product-image">🎧</div>
+                <div class="product-info">
+                    <h4>Gravity Earbuds</h4>
+                    <p>Environmental Noise Cancellation</p>
+                </div>
+                <div class="card-footer">
+                    <span class="discount-percent">80% OFF</span>
+                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20Gravity%20Earbuds%20chahiye" target="_blank" class="buy-btn">Order Now</a>
                 </div>
             </div>
 
@@ -315,91 +336,8 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Aqib Ali Traders. All Rights Reserved.</p>
-        <p style="margin-top: 10px; font-size: 0.9rem; color: #94a3b8;">📧 Aqibali552133@gmail.com | 📱 +92 308 0552133</p>
+        <p>&copy; 2026 Aqib Ali Traders. All Rights Reserved. | Phone: +92 308 0552133</p>
     </footer>
 
-    <script>
-        // --- 1. Enhanced 3D Tilt Script ---
-        function js3D(event, element) {
-            const cardWidth = element.offsetWidth;
-            const cardHeight = element.offsetHeight;
-            const mouseX = event.clientX - element.getBoundingClientRect().left;
-            const mouseY = event.clientY - element.getBoundingClientRect().top;
-            
-            const rotateX = ((cardHeight / 2 - mouseY) / (cardHeight / 2)) * 20; // 20 deg for deeper dynamic depth
-            const rotateY = ((mouseX - cardWidth / 2) / (cardWidth / 2)) * 20;
-            
-            element.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        }
-
-        function reset3D(element) {
-            element.style.transform = `rotateX(0deg) rotateY(0deg)`;
-        }
-
-        // --- 2. Audio Play Control ---
-        window.addEventListener('click', () => {
-            const music = document.getElementById('bg-music');
-            if (music.paused) {
-                music.volume = 0.15;
-                music.play();
-            }
-        });
-
-        // --- 3. Magical Snowfall Script ---
-        const canvas = document.getElementById('snow-canvas');
-        const ctx = canvas.getContext('2d');
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
-
-        const numFlakes = 75;
-        const flakes = [];
-
-        for (let i = 0; i < numFlakes; i++) {
-            flakes.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                r: Math.random() * 3 + 1,
-                d: Math.random() * numFlakes
-            });
-        }
-
-        function drawSnow() {
-            ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
-            ctx.beginPath();
-            for (let i = 0; i < numFlakes; i++) {
-                const f = flakes[i];
-                ctx.moveTo(f.x, f.y);
-                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
-            }
-            ctx.fill();
-            moveSnow();
-        }
-
-        function moveSnow() {
-            for (let i = 0; i < numFlakes; i++) {
-                const f = flakes[i];
-                f.y += Math.cos(f.d) + 1 + f.r / 2;
-                f.x += Math.sin(f.d) * 0.4;
-
-                if (f.y > height) {
-                    flakes[i] = { x: Math.random() * width, y: 0, r: f.r, d: f.d };
-                }
-            }
-        }
-
-        function updateSnow() {
-            drawSnow();
-            requestAnimationFrame(updateSnow);
-        }
-
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        });
-
-        updateSnow();
-    </script>
 </body>
 </html>
