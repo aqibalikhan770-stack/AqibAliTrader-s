@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqib Ali Traders | Premium Tech Store</title>
+    <title>Carbon Earbuds | Premium Tech Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --text-color: #111827;
+            --primary-green: #22c55e;
+            --primary-black: #000000;
+            --text-dark: #111827;
             --text-muted: #6b7280;
-            --price-discount: #dc2626;
-            --price-was: #9ca3af;
-            --border-color: #e2e8f0;
-            --accent-blue: #2563eb;
+            --bg-light: #f9fafb;
+            --border-color: #e5e7eb;
+            --accent-pink: #ec4899;
         }
 
         * {
@@ -23,328 +24,663 @@
         }
 
         body {
-            color: var(--text-color);
+            color: var(--text-dark);
             overflow-x: hidden;
-            /* New Requested Premium Background */
             background-image: url("https://img.magnific.com/free-photo/arrangement-black-friday-shopping-carts-with-copy-space_23-2148667047.jpg?semt=ais_hybrid&w=740&q=80");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-color: #0c0a09; /* Fallback color */
+            background-color: #0c0a09;
         }
 
-        .top-announcement {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 8px 10px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        header {
-            background: rgba(12, 10, 9, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            position: sticky;
+        #snow-canvas {
+            position: fixed;
             top: 0;
-            z-index: 100;
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: #fff;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .container {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
-        .promo-banner {
-            width: 100%;
-            background: linear-gradient(135deg, rgba(28, 25, 23, 0.95) 0%, rgba(68, 37, 22, 0.9) 100%);
-            backdrop-filter: blur(5px);
-            border-radius: 0 0 16px 16px;
-            padding: 40px 20px;
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        .page-layout {
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .page-layout {
+                display: flex;
+                gap: 40px;
+            }
+            .product-visuals {
+                flex: 1;
+                position: sticky;
+                top: 20px;
+                height: max-content;
+                background: rgba(255, 255, 255, 0.96);
+                padding: 25px;
+                border-radius: 14px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            }
+            .product-details-form {
+                flex: 1;
+            }
         }
 
-        .promo-banner h2 {
-            font-size: 3rem;
-            font-weight: 900;
+        @media (max-width: 767px) {
+            .product-visuals {
+                background: rgba(255, 255, 255, 0.96);
+                padding: 20px;
+                border-radius: 14px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .trending-tag {
+            color: var(--accent-pink);
+            font-weight: 700;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #facc15;
-            margin-bottom: 15px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: inline-block;
         }
 
-        .promo-banner p {
-            font-size: 1.2rem;
-            font-weight: 600;
+        .rating-reviews {
+            float: right;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+
+        .rating-stars {
+            color: #fbbf24;
+        }
+
+        h1.product-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            clear: both;
+            color: #000;
+        }
+
+        .product-subtext {
+            color: var(--text-muted);
+            font-size: 1.1rem;
             margin-bottom: 20px;
         }
 
-        .shop-now-btn {
-            display: inline-block;
-            background-color: #fff;
-            color: #000;
-            padding: 12px 35px;
-            border-radius: 30px;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+        .price-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
-        .section-header {
+        .current-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-black);
+        }
+
+        .was-price {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .countdown-banner {
+            background-color: #16a34a;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 10px 15px;
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        .section-header h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #fff;
+        .timer-display {
+            font-variant-numeric: tabular-nums;
+            background: rgba(0,0,0,0.15);
+            padding: 4px 8px;
+            border-radius: 4px;
         }
 
-        .section-header a {
-            color: #facc15;
-            text-decoration: none;
+        .view-proof {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #16a34a;
             font-size: 0.95rem;
             font-weight: 600;
+            margin-bottom: 25px;
         }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 60px;
-        }
-
-        .product-card {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 14px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
-        }
-
-        .product-tag {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #ec4899;
-            text-transform: uppercase;
-            z-index: 5;
-        }
-
-        .was-price-tag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--price-discount);
-            z-index: 5;
-        }
-
-        .product-image-container {
-            height: 220px;
+        .main-image-box {
+            width: 100%;
+            height: 350px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 20px 0 15px 0;
-            background-color: #ffffff;
-            border-radius: 8px;
             overflow: hidden;
-        }
-
-        .product-image-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .product-info h4 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 4px;
-        }
-
-        .product-info p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            background: #fff;
             margin-bottom: 15px;
         }
 
-        .card-footer {
+        .main-image-box img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .thumbnail-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .thumb-btn {
+            width: 70px;
+            height: 70px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            overflow: hidden;
+            padding: 4px;
+        }
+
+        .thumb-btn.active {
+            border-color: var(--primary-black);
+        }
+
+        .thumb-btn img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .form-section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 25px 0 12px 0;
+            color: var(--primary-black);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #374151;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-black);
+        }
+
+        .color-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .color-option {
+            position: relative;
+        }
+
+        .color-option input[type="radio"] {
+            display: none;
+        }
+
+        .color-label {
+            display: block;
+            padding: 10px 20px;
+            border: 1px solid #d1d5db;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: #fff;
+        }
+
+        .color-option input[type="radio"]:checked + .color-label {
+            border-color: var(--primary-black);
+            background-color: var(--primary-black);
+            color: white;
+        }
+
+        .quantity-wrapper {
+            display: flex;
+            align-items: center;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            width: max-content;
+            margin-bottom: 25px;
+            background: #fff;
+        }
+
+        .qty-btn {
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .qty-input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            font-size: 1rem;
+            font-weight: 700;
+            outline: none;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            text-transform: uppercase;
+            transition: background 0.2s;
+        }
+
+        .btn-outline {
+            background: #fff;
+            color: var(--primary-black);
+            border: 2px solid var(--primary-black);
+        }
+
+        .btn-fill {
+            background: var(--primary-black);
+            color: #fff;
+            border: none;
+        }
+
+        .btn-fill:hover {
+            background: #1f2937;
+        }
+
+        .checkout-box {
+            background-color: rgba(255, 255, 255, 0.98);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .payment-option {
+            border: 1px solid #d1d5db;
+            background: #fff;
+            border-radius: 6px;
+            padding: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .order-summary-mini {
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .summary-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 12px;
-        }
-
-        .discount-percent {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--price-discount);
-        }
-
-        .buy-btn {
-            background-color: #25D366;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        footer {
-            background: #000;
-            color: #a8a29e;
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            margin-top: 50px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="top-announcement">🔥 PAKISTAN DAY SALE IS LIVE - SPECIAL DISCOUNTS ON BULK STOCKS!</div>
-
-    <header>
-        <div class="container">
-            <h1>Aqib Ali Traders</h1>
-        </div>
-    </header>
+    <canvas id="snow-canvas"></canvas>
 
     <div class="container">
-        
-        <div class="promo-banner">
-            <h2>Best Offers</h2>
-            <p>Premium Sealed Pack Smart Watches & Earbuds</p>
-            <a href="https://wa.me/923080552133" target="_blank" class="shop-now-btn">Shop Now</a>
-        </div>
-
-        <div class="section-header">
-            <h3>Best Sellers</h3>
-            <a href="#">View all</a>
-        </div>
-
-        <div class="product-grid">
+        <form id="whatsapp-order-form" onsubmit="sendWhatsAppOrder(event)">
             
-            <!-- Item 1: Carbon Earbuds -->
-            <div class="product-card">
-                <span class="product-tag">Trending</span>
-                <span class="was-price-tag">WAS RS 4,999</span>
-                <div class="product-image-container">
-                    <img src="https://static-01.daraz.pk/p/232a0e5b3ceb75bd4cbecbb463f0b2ec.jpg" alt="Carbon Earbuds">
-                </div>
-                <div class="product-info">
-                    <h4>Carbon Earbuds</h4>
-                    <p>Loud Sound & Premium Bass</p>
-                </div>
-                <div class="card-footer">
-                    <span class="discount-percent">79% OFF</span>
-                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20Carbon%20Earbuds%20chahiye" target="_blank" class="buy-btn">Order Now</a>
-                </div>
-            </div>
+            <div class="page-layout">
+                
+                <!-- Left Column: Visuals & Product Specs -->
+                <div class="product-visuals">
+                    <span class="trending-tag">Trending</span>
+                    <div class="rating-reviews">
+                        <span class="rating-stars">★★★★★</span>
+                        <span>2296 reviews</span>
+                    </div>
 
-            <!-- Item 2: Luna Watch -->
-            <div class="product-card">
-                <span class="product-tag">Smart Tech</span>
-                <span class="was-price-tag">WAS RS 5,999</span>
-                <div class="product-image-container">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf_xbUNVld5Oi5onTZIATWDSJDg6XU4_ONnzAhXv_I3Q&s=10" alt="Luna Watch">
-                </div>
-                <div class="product-info">
-                    <h4>Luna Watch</h4>
-                    <p>1.39" HD Display Amoled</p>
-                </div>
-                <div class="card-footer">
-                    <span class="discount-percent">77% OFF</span>
-                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20Luna%20Watch%20chahiye" target="_blank" class="buy-btn">Order Now</a>
-                </div>
-            </div>
+                    <h1 class="product-title">Carbon Earbuds</h1>
+                    <p class="product-subtext">Loud Sound | ENC</p>
 
-            <!-- Item 3: Ignite Watch -->
-            <div class="product-card">
-                <span class="product-tag">Top Seller</span>
-                <span class="was-price-tag">WAS RS 6,999</span>
-                <div class="product-image-container">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc08Vn4TvZw88u3xSimd-AZF3s-cpwjnT-UKIvEm95Zw&s=10" alt="Ignite Watch">
-                </div>
-                <div class="product-info">
-                    <h4>Ignite Watch</h4>
-                    <p>Up to 9 Days Long Battery</p>
-                </div>
-                <div class="card-footer">
-                    <span class="discount-percent">77% OFF</span>
-                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20Ignite%20Watch%20chahiye" target="_blank" class="buy-btn">Order Now</a>
-                </div>
-            </div>
+                    <div class="price-section">
+                        <span class="current-price">Rs.2,999</span>
+                        <span class="was-price">Rs.14,499</span>
+                    </div>
 
-            <!-- Item 4: Gravity Earbuds -->
-            <div class="product-card">
-                <span class="product-tag">Heavy Bass Drivers</span>
-                <span class="was-price-tag">WAS RS 5,499</span>
-                <div class="product-image-container">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8O3hs-x_H_kvP82NoltUDwHdmR3U4FPa3KhPUufGSQQ&s=10" alt="Gravity Earbuds">
-                </div>
-                <div class="product-info">
-                    <h4>Gravity Earbuds</h4>
-                    <p>Environmental Noise Cancellation</p>
-                </div>
-                <div class="card-footer">
-                    <span class="discount-percent">80% OFF</span>
-                    <a href="https://wa.me/923080552133?text=Salam,%20mujhe%20Gravity%20Earbuds%20chahiye" target="_blank" class="buy-btn">Order Now</a>
-                </div>
-            </div>
+                    <div class="countdown-banner">
+                        <span>79% OFF</span>
+                        <span class="timer-display" id="sale-timer">00h 03m 59s</span>
+                    </div>
 
-        </div>
+                    <div class="view-proof">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/></svg>
+                        <span>1158+ People viewed this in the last 7 days</span>
+                    </div>
+
+                    <div class="main-image-box">
+                        <img id="main-product-img" src="https://static-01.daraz.pk/p/232a0e5b3ceb75bd4cbecbb463f0b2ec.jpg" alt="Carbon Earbuds Black">
+                    </div>
+
+                    <div class="thumbnail-row">
+                        <div class="thumb-btn active" onclick="changeImage('https://static-01.daraz.pk/p/232a0e5b3ceb75bd4cbecbb463f0b2ec.jpg', this)">
+                            <img src="https://static-01.daraz.pk/p/232a0e5b3ceb75bd4cbecbb463f0b2ec.jpg" alt="Thumb 1">
+                        </div>
+                        <div class="thumb-btn" onclick="changeImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8O3hs-x_H_kvP82NoltUDwHdmR3U4FPa3KhPUufGSQQ&s=10', this)">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8O3hs-x_H_kvP82NoltUDwHdmR3U4FPa3KhPUufGSQQ&s=10" alt="Thumb 2">
+                        </div>
+                    </div>
+
+                    <label class="input-group label">Color:</label>
+                    <div class="color-selector">
+                        <div class="color-option">
+                            <input type="radio" id="col-black" name="color_choice" value="Black" checked>
+                            <label for="col-black" class="color-label">Black</label>
+                        </div>
+                        <div class="color-option">
+                            <input type="radio" id="col-grey" name="color_choice" value="Grey">
+                            <label for="col-grey" class="color-label">Grey</label>
+                        </div>
+                        <div class="color-option">
+                            <input type="radio" id="col-white" name="color_choice" value="White">
+                            <label for="col-white" class="color-label">White</label>
+                        </div>
+                    </div>
+
+                    <label class="input-group label">Quantity (Max 10):</label>
+                    <div class="quantity-wrapper">
+                        <button type="button" class="qty-btn" onclick="adjustQty(-1)">−</button>
+                        <input type="text" id="quantity-count" class="qty-input" value="1" readonly>
+                        <button type="button" class="qty-btn" onclick="adjustQty(1)">+</button>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-outline" onclick="scrollToCheckout()">Add to Cart</button>
+                        <button type="button" class="btn btn-fill" onclick="scrollToCheckout()">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Checkout Details Form (WhatsApp Redirect) -->
+                <div class="product-details-form" id="checkout-section">
+                    <div class="checkout-box">
+                        <h3 class="form-section-title" style="margin-top:0;">Contact</h3>
+                        <div class="input-group">
+                            <input type="email" id="cust-email" class="form-control" placeholder="Email Address" required>
+                        </div>
+
+                        <h3 class="form-section-title">Delivery</h3>
+                        <div style="display:flex; gap:12px;">
+                            <div class="input-group" style="flex:1;">
+                                <input type="text" id="cust-fname" class="form-control" placeholder="First name" required>
+                            </div>
+                            <div class="input-group" style="flex:1;">
+                                <input type="text" id="cust-lname" class="form-control" placeholder="Last name" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" id="cust-address" class="form-control" placeholder="Address (House #, Street, Near Landmark)" required>
+                            <small style="color: #dc2626; font-size: 0.8rem; margin-top:4px; display:block;">Add complete address & nearest landmark (At least 12 words)</small>
+                        </div>
+
+                        <div style="display:flex; gap:12px;">
+                            <div class="input-group" style="flex:1;">
+                                <input type="text" id="cust-city" class="form-control" placeholder="City" required>
+                            </div>
+                            <div class="input-group" style="flex:1;">
+                                <input type="text" id="cust-zip" class="form-control" placeholder="Postal code (optional)">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="tel" id="cust-phone" class="form-control" placeholder="Phone Number" required>
+                        </div>
+
+                        <h3 class="form-section-title">Shipping method</h3>
+                        <div class="payment-option" style="justify-content: space-between;">
+                            <span>Free Delivery</span>
+                            <strong>FREE</strong>
+                        </div>
+
+                        <h3 class="form-section-title">Payment</h3>
+                        <div class="payment-option">
+                            <input type="radio" checked id="cod">
+                            <label for="cod" style="margin:0;">Cash on Delivery (COD)</label>
+                        </div>
+
+                        <div class="order-summary-mini">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="subtotal-val">Rs. 2,999.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span>FREE</span>
+                            </div>
+                            <div class="summary-row" style="font-weight:800; font-size:1.2rem; border-top: 1px solid #ddd; padding-top:10px; margin-top:10px;">
+                                <span>Total</span>
+                                <span id="total-val">PKR Rs. 2,999.00</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <button type="submit" class="btn btn-fill" style="border-radius: 6px;">Complete order</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Aqib Ali Traders. All Rights Reserved. | Phone: +92 308 0552133</p>
-    </footer>
+    <a href="https://wa.me/923080552133" target="_blank" class="whatsapp-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Support">
+    </a>
 
+    <script>
+        // --- ❄️ SNOW EFFECT ---
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const numFlakes = 80;
+        const flakes = [];
+        for (let i = 0; i < numFlakes; i++) {
+            flakes.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                r: Math.random() * 3 + 1,
+                d: Math.random() * numFlakes,
+                v: Math.random() * 1 + 0.5
+            });
+        }
+
+        function drawSnow() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+            ctx.beginPath();
+            for (let i = 0; i < numFlakes; i++) {
+                const f = flakes[i];
+                ctx.moveTo(f.x, f.y);
+                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+            }
+            ctx.fill();
+            moveSnow();
+        }
+
+        function moveSnow() {
+            for (let i = 0; i < numFlakes; i++) {
+                const f = flakes[i];
+                f.y += f.v;
+                f.x += Math.sin(f.d) * 0.5;
+                if (f.y > height) {
+                    flakes[i] = { x: Math.random() * width, y: 0, r: f.r, d: f.d, v: f.v };
+                }
+            }
+        }
+
+        function runSnowEngine() {
+            drawSnow();
+            requestAnimationFrame(runSnowEngine);
+        }
+        runSnowEngine();
+
+        function changeImage(imgSrc, element) {
+            document.getElementById('main-product-img').src = imgSrc;
+            const thumbs = document.querySelectorAll('.thumb-btn');
+            thumbs.forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        let time = 239;
+        const timerElement = document.getElementById('sale-timer');
+        setInterval(() => {
+            if (time <= 0) time = 240;
+            time--;
+            let hrs = Math.floor(time / 3600).toString().padStart(2, '0');
+            let mins = Math.floor((time % 3600) / 60).toString().padStart(2, '0');
+            let secs = (time % 60).toString().padStart(2, '0');
+            timerElement.textContent = `${hrs}h ${mins}m ${secs}s`;
+        }, 1000);
+
+        // Dynamic limits up to 10 products
+        const pricePerUnit = 2999;
+        function adjustQty(amount) {
+            const qtyInput = document.getElementById('quantity-count');
+            let currentQty = parseInt(qtyInput.value);
+            currentQty += amount;
+            
+            if (currentQty < 1) currentQty = 1;
+            if (currentQty > 10) currentQty = 10; // Sets limit to 10 items Max
+            
+            qtyInput.value = currentQty;
+
+            const finalTotal = currentQty * pricePerUnit;
+            document.getElementById('subtotal-val').textContent = `Rs. ${finalTotal.toLocaleString()}.00`;
+            document.getElementById('total-val').textContent = `PKR Rs. ${finalTotal.toLocaleString()}.00`;
+        }
+
+        function scrollToCheckout() {
+            document.getElementById('checkout-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function sendWhatsAppOrder(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('cust-email').value;
+            const firstName = document.getElementById('cust-fname').value;
+            const lastName = document.getElementById('cust-lname').value;
+            const address = document.getElementById('cust-address').value;
+            const city = document.getElementById('cust-city').value;
+            const zip = document.getElementById('cust-zip').value || "N/A";
+            const phone = document.getElementById('cust-phone').value;
+            const qty = document.getElementById('quantity-count').value;
+            
+            const colorSelected = document.querySelector('input[name="color_choice"]:checked').value;
+            const totalBill = qty * pricePerUnit;
+
+            const whatsappNumber = "923080552133";
+            const textMessage = `*🔥 NEW ORDER RECEIVED - AQIB ALI TRADERS *%0A%0A` +
+                                `*📦 Product:* Carbon Earbuds (Loud Sound | ENC)%0A` +
+                                `*🎨 Color:* ${colorSelected}%0A` +
+                                `*🔢 Quantity:* ${qty}%0A` +
+                                `*💰 Total Amount:* PKR ${totalBill.toLocaleString()} (COD)%0A%0A` +
+                                `*👤 Customer Details:*%0A` +
+                                `• *Name:* ${firstName} ${lastName}%0A` +
+                                `• *Phone:* ${phone}%0A` +
+                                `• *Email:* ${email}%0A` +
+                                `• *City:* ${city}%0A` +
+                                `• *Address:* ${address}%0A` +
+                                `• *Postal Code:* ${zip}%0A%0A` +
+                                `⚡ _Kindly confirm this cash on delivery order._`;
+
+            window.open(`https://wa.me/${whatsappNumber}?text=${textMessage}`, '_blank');
+        }
+    </script>
 </body>
 </html>
