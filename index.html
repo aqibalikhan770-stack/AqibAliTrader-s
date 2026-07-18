@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #0c0a09; /* Deep Dark Black-Brown Base */
+            --bg-main: #0c0a09; 
             --text-color: #111827;
             --text-muted: #6b7280;
             --price-discount: #dc2626;
@@ -27,10 +27,8 @@
             color: var(--text-color);
             overflow-x: hidden;
             background-color: var(--bg-main);
-            
-            /* Premium Black & Dark Brown Gradient with Golden-Bronze Doodle Logos */
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(67, 42, 26, 0.65) 0%, transparent 50%), /* Dark Brown Glow */
+                radial-gradient(circle at 20% 30%, rgba(67, 42, 26, 0.65) 0%, transparent 50%), 
                 radial-gradient(circle at 80% 70%, rgba(28, 25, 23, 0.8) 0%, transparent 60%),
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23d97706' fill-opacity='0.15'%3E%3Cpath d='M15 5h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2zm30 0h2v2h-2zm0-4h2v2h-2zm0-4h2v2h-2zM30 20h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2zm5 10h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2zM10 50h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2zm50-10h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2zm-30 10h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2z'/%3E%3Ccircle cx='55' cy='15' r='3'/%3E%3Ccircle cx='65' cy='25' r='2'/%3E%3Cpath d='M60 45l3-3 3 3-3 3zM20 65l2-2 2 2-2 2z'/%3E%3Ccircle cx='25' cy='10' r='1.5'/%3E%3Ccircle cx='70' cy='55' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
             background-attachment: fixed;
@@ -71,7 +69,6 @@
             padding: 0 20px;
         }
 
-        /* Premium Banner styling */
         .promo-banner {
             width: 100%;
             background: linear-gradient(135deg, #1c1917 0%, #442516 100%);
@@ -109,11 +106,6 @@
             text-decoration: none;
             text-transform: uppercase;
             font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-
-        .shop-now-btn:hover {
-            background-color: #e7e5e4;
         }
 
         .section-header {
@@ -143,7 +135,6 @@
             margin-bottom: 60px;
         }
 
-        /* Clean White Cards standing out over Dark Background */
         .product-card {
             background: #ffffff;
             border-radius: 14px;
@@ -189,10 +180,9 @@
             align-items: center;
             justify-content: center;
             margin: 20px 0 15px 0;
-            background-color: #f8fafc;
+            background-color: #ffffff;
             border-radius: 8px;
             overflow: hidden;
-            border: 1px solid #f1f5f9;
         }
 
         .product-image-container img {
@@ -200,14 +190,6 @@
             max-height: 100%;
             object-fit: contain;
             transition: transform 0.3s ease;
-        }
-
-        .fallback-icon {
-            font-size: 5rem;
-        }
-
-        .product-card:hover .product-image-container img {
-            transform: scale(1.05);
         }
 
         .product-info h4 {
@@ -245,13 +227,6 @@
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 700;
-            box-shadow: 0 2px 4px rgba(37, 211, 102, 0.2);
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        .buy-btn:hover {
-            background-color: #1fba55;
-            transform: scale(1.03);
         }
 
         footer {
@@ -261,7 +236,6 @@
             text-align: center;
             font-size: 0.9rem;
             margin-top: 50px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
@@ -295,8 +269,7 @@
                 <span class="product-tag">Trending</span>
                 <span class="was-price-tag">WAS RS 4,999</span>
                 <div class="product-image-container">
-                    <img src="earbuds1.jpg" alt="Carbon Earbuds" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="fallback-icon" style="display:none;">🎧</div>
+                    <img src="https://static-01.daraz.pk/p/232a0e5b3ceb75bd4cbecbb463f0b2ec.jpg" alt="Carbon Earbuds">
                 </div>
                 <div class="product-info">
                     <h4>Carbon Earbuds</h4>
@@ -313,8 +286,7 @@
                 <span class="product-tag">Smart Tech</span>
                 <span class="was-price-tag">WAS RS 5,999</span>
                 <div class="product-image-container">
-                    <img src="watch1.jpg" alt="Luna Watch" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="fallback-icon" style="display:none;">⌚</div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf_xbUNVld5Oi5onTZIATWDSJDg6XU4_ONnzAhXv_I3Q&s=10" alt="Luna Watch">
                 </div>
                 <div class="product-info">
                     <h4>Luna Watch</h4>
@@ -331,8 +303,7 @@
                 <span class="product-tag">Top Seller</span>
                 <span class="was-price-tag">WAS RS 6,999</span>
                 <div class="product-image-container">
-                    <img src="watch2.jpg" alt="Ignite Watch" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="fallback-icon" style="display:none;">⌚</div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc08Vn4TvZw88u3xSimd-AZF3s-cpwjnT-UKIvEm95Zw&s=10" alt="Ignite Watch">
                 </div>
                 <div class="product-info">
                     <h4>Ignite Watch</h4>
@@ -344,13 +315,12 @@
                 </div>
             </div>
 
-            <!-- Item 4: Gravity Earbuds -->
+            <!-- Item 4: Gravity Earbuds (With your newly provided image link) -->
             <div class="product-card">
                 <span class="product-tag">Heavy Bass Drivers</span>
                 <span class="was-price-tag">WAS RS 5,499</span>
                 <div class="product-image-container">
-                    <img src="earbuds2.jpg" alt="Gravity Earbuds" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="fallback-icon" style="display:none;">🎧</div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8O3hs-x_H_kvP82NoltUDwHdmR3U4FPa3KhPUufGSQQ&s=10" alt="Gravity Earbuds">
                 </div>
                 <div class="product-info">
                     <h4>Gravity Earbuds</h4>
