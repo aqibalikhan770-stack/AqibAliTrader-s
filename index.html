@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rent a phudi's | Premium Relaxer</title>
+    <title>Aqib Ali Traders | Premium Collection</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,8 +14,8 @@
         }
 
         body {
-            background-color: #ffffff;
-            color: #111827;
+            background-color: #0f172a;
+            color: #f8fafc;
         }
 
         /* --- 🔴 TOP RED SALE BANNER --- */
@@ -45,9 +45,9 @@
 
         /* --- 🕒 TRUST INFOBAR --- */
         .trust-bar {
-            background-color: #0a0a0a;
-            color: #d1d5db;
-            border-bottom: 1px solid #222;
+            background-color: #020617;
+            color: #94a3b8;
+            border-bottom: 1px solid #1e293b;
             padding: 8px 20px;
             display: flex;
             justify-content: space-around;
@@ -72,7 +72,8 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-bottom: 1px solid #1e293b;
         }
 
         .brand-logo {
@@ -90,7 +91,7 @@
 
         .brand-logo span {
             font-size: 0.65rem;
-            color: #9ca3af;
+            color: #94a3b8;
             letter-spacing: 2px;
             margin-top: -2px;
         }
@@ -102,7 +103,7 @@
         }
 
         .nav-links a {
-            color: #e5e7eb;
+            color: #e2e8f0;
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
@@ -112,7 +113,7 @@
         }
 
         .nav-links a:hover {
-            color: #9ca3af;
+            color: #38bdf8;
         }
 
         /* Snowfall Effect - Professional Falling Snow */
@@ -164,7 +165,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #1e293b;
             padding-bottom: 15px;
         }
 
@@ -174,12 +175,12 @@
             align-items: center;
             font-size: 0.9rem;
             font-weight: 700;
-            color: #374151;
+            color: #cbd5e1;
         }
 
         .filter-dropdown {
             font-weight: 500;
-            color: #6b7280;
+            color: #94a3b8;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -188,16 +189,16 @@
 
         .sort-select {
             padding: 8px 16px;
-            border: 1px solid #d1d5db;
+            border: 1px solid #334155;
             border-radius: 4px;
             font-size: 0.9rem;
             outline: none;
-            color: #374151;
-            background: #fff;
+            color: #f8fafc;
+            background: #1e293b;
             cursor: pointer;
         }
 
-        /* --- 🛍️ PRODUCT GRID WITH SHOP NOW BUTTON --- */
+        /* --- 🛍️ PRODUCT GRID --- */
         .catalog-container {
             max-width: 1300px;
             margin: 0 auto 50px auto;
@@ -211,26 +212,27 @@
         }
 
         .product-card {
-            background: #ffffff;
+            background: #1e293b;
             position: relative;
-            border-radius: 6px;
+            border-radius: 8px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            border: 1px solid #f0f0f0;
+            border: 1px solid #334155;
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .product-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border-color: #475569;
         }
 
         .image-wrapper {
             position: relative;
             width: 100%;
-            height: 320px;
-            background-color: #f9fafb;
+            height: 300px;
+            background-color: #0f172a;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -260,7 +262,8 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(15, 23, 42, 0.85);
+            color: #f8fafc;
             padding: 2px 6px;
             border-radius: 4px;
             font-size: 0.75rem;
@@ -268,7 +271,7 @@
             display: flex;
             align-items: center;
             gap: 3px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .star-icon {
@@ -290,13 +293,13 @@
         .product-name {
             font-size: 1.05rem;
             font-weight: 700;
-            color: #111827;
+            color: #f8fafc;
             margin-bottom: 4px;
         }
 
         .product-type {
             font-size: 0.85rem;
-            color: #6b7280;
+            color: #94a3b8;
             margin-bottom: 8px;
         }
 
@@ -310,12 +313,12 @@
         .price-new {
             font-size: 1.1rem;
             font-weight: 700;
-            color: #000000;
+            color: #38bdf8;
         }
 
         .price-old {
             font-size: 0.95rem;
-            color: #9ca3af;
+            color: #64748b;
             text-decoration: line-through;
         }
 
@@ -325,11 +328,11 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background-color: #000000;
+            background-color: #25d366;
             color: #ffffff;
             text-decoration: none;
             padding: 12px;
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -341,7 +344,7 @@
         }
 
         .btn-shop-now:hover {
-            background-color: #1f2937;
+            background-color: #22c55e;
         }
 
         .wa-icon {
@@ -382,14 +385,14 @@
     <!-- 🖤 MAIN BLACK HEADER -->
     <nav class="main-navbar">
         <div class="brand-logo">
-            <h1>Rent a phudi's</h1>
-            <span>SINCE 2026</span>
+            <h1>Aqib Ali Traders</h1>
+            <span>EST. 2026</span>
         </div>
         
         <ul class="nav-links">
             <li><a href="#">Best Sellers</a></li>
-            <li><a href="#">New Arrival</a></li>
-            <li><a href="#">Relaxer</a></li>
+            <li><a href="#">New Earbuds</a></li>
+            <li><a href="#">Smartwatches</a></li>
             <li><a href="#">Track Order</a></li>
         </ul>
 
@@ -419,7 +422,7 @@
         </div>
     </div>
 
-    <!-- 🛍️ CATALOG 8-PRODUCT GRID -->
+    <!-- 🛍️ CATALOG 8-PRODUCT GRID WITH YOUR PROVIDED IMAGES & NAMES -->
     <main class="catalog-container">
         <div class="product-grid">
             
@@ -428,20 +431,20 @@
                 <div class="image-wrapper">
                     <span class="badge-discount">36% OFF</span>
                     <span class="badge-rating"><span class="star-icon">★</span> 4.8</span>
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60" alt="Emily Clark">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbPCpK4thF9ly_aT4apF3917zS8mv1OT1H2OhNikWn1w&s=10" alt="Emily Clark">
                 </div>
                 <div class="product-info">
                     <div class="product-details">
                         <h3 class="product-name">Emily Clark</h3>
                         <p class="product-type">Premium Edition</p>
                         <div class="price-box">
-                            <span class="price-new">€34.00</span>
-                            <span class="price-old">€55.00</span>
+                            <span class="price-new">Rs. 3,400</span>
+                            <span class="price-old">Rs. 5,500</span>
                         </div>
                     </div>
-                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Emily Clark', '€34.00')">
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Emily Clark', 'Rs. 3,400')">
                         <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
-                        Shop Now
+                        Buy on WhatsApp
                     </button>
                 </div>
             </div>
@@ -451,20 +454,20 @@
                 <div class="image-wrapper">
                     <span class="badge-discount">30% OFF</span>
                     <span class="badge-rating"><span class="star-icon">★</span> 4.7</span>
-                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop&q=60" alt="Jessica Smith">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFmzlmxf_LPGy3X-5-jc2kA6-udMPVvn7Rds56RvYIjQ&s=10" alt="Jessica Smith">
                 </div>
                 <div class="product-info">
                     <div class="product-details">
                         <h3 class="product-name">Jessica Smith</h3>
                         <p class="product-type">Advanced Series</p>
                         <div class="price-box">
-                            <span class="price-new">€62.00</span>
-                            <span class="price-old">€90.00</span>
+                            <span class="price-new">Rs. 6,200</span>
+                            <span class="price-old">Rs. 9,000</span>
                         </div>
                     </div>
-                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Jessica Smith', '€62.00')">
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Jessica Smith', 'Rs. 6,200')">
                         <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
-                        Shop Now
+                        Buy on WhatsApp
                     </button>
                 </div>
             </div>
@@ -474,20 +477,20 @@
                 <div class="image-wrapper">
                     <span class="badge-discount">25% OFF</span>
                     <span class="badge-rating"><span class="star-icon">★</span> 4.9</span>
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60" alt="Sophie Taylor">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZOk8v6vsdwhJBMwoidSa5QAQXaWXr4HFxuvDI-BCR3w&s=10" alt="Sophie Taylor">
                 </div>
                 <div class="product-info">
                     <div class="product-details">
                         <h3 class="product-name">Sophie Taylor</h3>
                         <p class="product-type">Luxury Collection</p>
                         <div class="price-box">
-                            <span class="price-new">€89.00</span>
-                            <span class="price-old">€120.00</span>
+                            <span class="price-new">Rs. 8,900</span>
+                            <span class="price-old">Rs. 12,000</span>
                         </div>
                     </div>
-                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Sophie Taylor', '€89.00')">
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Sophie Taylor', 'Rs. 8,900')">
                         <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
-                        Shop Now
+                        Buy on WhatsApp
                     </button>
                 </div>
             </div>
@@ -497,20 +500,20 @@
                 <div class="image-wrapper">
                     <span class="badge-discount">37% OFF</span>
                     <span class="badge-rating"><span class="star-icon">★</span> 4.6</span>
-                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&auto=format&fit=crop&q=60" alt="Olivia Brown">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQFWhlavZCK5ea7alogsMHeOkyjrz3-L8XWCsO-wifUQ&s=10" alt="Olivia Brown">
                 </div>
                 <div class="product-info">
                     <div class="product-details">
                         <h3 class="product-name">Olivia Brown</h3>
                         <p class="product-type">Popular Choice</p>
                         <div class="price-box">
-                            <span class="price-new">€25.00</span>
-                            <span class="price-old">€40.00</span>
+                            <span class="price-new">Rs. 2,500</span>
+                            <span class="price-old">Rs. 4,000</span>
                         </div>
                     </div>
-                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Olivia Brown', '€25.00')">
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Olivia Brown', 'Rs. 2,500')">
                         <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
-                        Shop Now
+                        Buy on WhatsApp
                     </button>
                 </div>
             </div>
@@ -520,20 +523,20 @@
                 <div class="image-wrapper">
                     <span class="badge-discount">31% OFF</span>
                     <span class="badge-rating"><span class="star-icon">★</span> 4.8</span>
-                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&auto=format&fit=crop&q=60" alt="Chloe Davies">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwpzFTLYeepbO828foonN_iz7gseNwUKZNM3Gl3sX83knifGg-ZmeHXMw&s=10" alt="Chloe Davies">
                 </div>
                 <div class="product-info">
                     <div class="product-details">
                         <h3 class="product-name">Chloe Davies</h3>
                         <p class="product-type">Special Edition</p>
                         <div class="price-box">
-                            <span class="price-new">€55.00</span>
-                            <span class="price-old">€80.00</span>
+                            <span class="price-new">Rs. 5,500</span>
+                            <span class="price-old">Rs. 8,000</span>
                         </div>
                     </div>
-                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Chloe Davies', '€55.00')">
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Chloe Davies', 'Rs. 5,500')">
                         <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
-                        Shop Now
+                        Buy on WhatsApp
                     </button>
                 </div>
             </div>
@@ -543,20 +546,20 @@
                 <div class="image-wrapper">
                     <span class="badge-discount">26% OFF</span>
                     <span class="badge-rating"><span class="star-icon">★</span> 4.7</span>
-                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop&q=60" alt="Charlotte Wilson">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSlm-wXNFtSZyB-l0KRMABM62wyL4L_r5hv0NPRXCG_w&s=10" alt="Charlotte Wilson">
                 </div>
                 <div class="product-info">
                     <div class="product-details">
                         <h3 class="product-name">Charlotte Wilson</h3>
                         <p class="product-type">Classic Line</p>
                         <div class="price-box">
-                            <span class="price-new">€70.00</span>
-                            <span class="price-old">€95.00</span>
+                            <span class="price-new">Rs. 7,000</span>
+                            <span class="price-old">Rs. 9,500</span>
                         </div>
                     </div>
-                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Charlotte Wilson', '€70.00')">
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Charlotte Wilson', 'Rs. 7,000')">
                         <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
-                        Shop Now
+                        Buy on WhatsApp
                     </button>
                 </div>
             </div>
@@ -566,20 +569,20 @@
                 <div class="image-wrapper">
                     <span class="badge-discount">32% OFF</span>
                     <span class="badge-rating"><span class="star-icon">★</span> 4.9</span>
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60" alt="Grace Evans">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5oDWDpf0VyQDsauaE-ogvCKBHV9AP3oJMIaYOM-XjCg&s=10" alt="Grace Evans">
                 </div>
                 <div class="product-info">
                     <div class="product-details">
                         <h3 class="product-name">Grace Evans</h3>
                         <p class="product-type">Ultra Series</p>
                         <div class="price-box">
-                            <span class="price-new">€95.00</span>
-                            <span class="price-old">€140.00</span>
+                            <span class="price-new">Rs. 9,500</span>
+                            <span class="price-old">Rs. 14,000</span>
                         </div>
                     </div>
-                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Grace Evans', '€95.00')">
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Grace Evans', 'Rs. 9,500')">
                         <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
-                        Shop Now
+                        Buy on WhatsApp
                     </button>
                 </div>
             </div>
@@ -589,20 +592,20 @@
                 <div class="image-wrapper">
                     <span class="badge-discount">29% OFF</span>
                     <span class="badge-rating"><span class="star-icon">★</span> 4.8</span>
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60" alt="Amelia Thomas">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDu5QyGVGvcciD4mUiYK0nI2iC-gvS8RkLv7hWXu2bBA&s=10" alt="Amelia Thomas">
                 </div>
                 <div class="product-info">
                     <div class="product-details">
                         <h3 class="product-name">Amelia Thomas</h3>
                         <p class="product-type">Minimalist Design</p>
                         <div class="price-box">
-                            <span class="price-new">€45.00</span>
-                            <span class="price-old">€85.00</span>
+                            <span class="price-new">Rs. 4,500</span>
+                            <span class="price-old">Rs. 8,500</span>
                         </div>
                     </div>
-                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Amelia Thomas', '€45.00')">
+                    <button class="btn-shop-now" onclick="redirectToWhatsApp('Amelia Thomas', 'Rs. 4,500')">
                         <svg class="wa-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-3.559c1.625.965 3.232 1.472 4.817 1.473 5.485 0 9.947-4.463 9.95-9.95.002-2.659-1.03-5.159-2.906-7.038C16.632 3.047 14.137 2.015 11.5 2.015c-5.485 0-9.946 4.463-9.95 9.95-.001 1.683.475 3.32 1.376 4.761L1.872 21l4.775-1.253zm11.756-7.391c-.267-.134-1.58-.78-1.827-.869-.247-.09-.427-.134-.607.134-.18.269-.696.869-.853 1.048-.157.179-.314.201-.581.067-.267-.134-1.13-.416-2.152-1.329-.795-.71-1.332-1.587-1.488-1.854-.157-.267-.017-.411.117-.544.121-.119.267-.313.401-.471.134-.157.179-.269.269-.449.09-.179.045-.336-.022-.471-.067-.134-.607-1.462-.832-2.001-.219-.526-.441-.456-.607-.464-.156-.008-.337-.01-.517-.01s-.472.067-.719.336c-.247.269-.944.923-.944 2.25 0 1.327.965 2.61 1.1 2.788.134.179 1.9 2.901 4.602 4.068.643.277 1.144.443 1.536.568.646.205 1.234.176 1.7.106.519-.078 1.58-.646 1.804-1.278.224-.632.224-1.176.157-1.278-.067-.102-.247-.165-.515-.299z"/></svg>
-                        Shop Now
+                        Buy on WhatsApp
                     </button>
                 </div>
             </div>
@@ -615,11 +618,11 @@
 
     <script>
         function redirectToWhatsApp(productName, productPrice) {
-            const phoneNumber = "8165785";
-            const message = `Assalam-o-Alaikum, I want to buy this profile from *Rent a phudi's*:\n\n` +
-                            `📦 *Name:* ${productName}\n` +
-                            `💰 *Rate:* ${productPrice}\n\n` +
-                            `Please guide me further.`;
+            const phoneNumber = "923080552133";
+            const message = `Assalam-o-Alaikum, I want to order this item from *Aqib Ali Traders*:\n\n` +
+                            `📦 *Product:* ${productName}\n` +
+                            `💰 *Price:* ${productPrice}\n\n` +
+                            `Please share further details.`;
             
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/+${phoneNumber}?text=${encodedMessage}`, '_blank');
